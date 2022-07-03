@@ -37,7 +37,6 @@ INFO.md
 .vscode
 access.log
 node_modules
-/coverage
 /db/something/lala.sqlite3
 /db/*.sqlite3
 .DS_Store
