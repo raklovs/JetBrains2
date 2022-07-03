@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 class App1 {
     public static String[] getWeekends(String format) {
 
@@ -14,5 +16,61 @@ class App1 {
             return daysWeekendsLong;
 
         }
+    }
+
+    public static int[] swap(int[] arraysIntegers) {
+
+        int[] result = new int[arraysIntegers.length];
+
+        if (arraysIntegers.length > 1) {
+
+            for (int i = 0; i < arraysIntegers.length; i++) {
+
+                if (i == 0 | i == arraysIntegers.length - 1) {
+
+                    result[i] = arraysIntegers[arraysIntegers.length - (i + 1)];
+
+                } else {
+
+                    result[i] = arraysIntegers[i];
+
+                }
+
+            }
+
+            return result;
+
+        } else {
+
+            return arraysIntegers;
+        }
+    }
+
+    public static int[] reversNumbers(int[] arraysIntegers) {
+
+        int[] result = new int[arraysIntegers.length];
+
+        if (arraysIntegers.length > 1) {
+
+            for (int i = 0; i < arraysIntegers.length; i++) {
+
+                result[i] = arraysIntegers[arraysIntegers.length - (i + 1)];
+
+            }
+
+            return result;
+
+        } else {
+
+            return arraysIntegers;
+        }
+
+    }
+
+    public static void main(String[] args) {
+        int[] numbers = {1, 2, 3, 4 , 5 , 6};
+        var result2 = App1.swap(numbers);
+        System.out.println(Arrays.toString(result2));
+
     }
 }
