@@ -5,9 +5,9 @@ import java.util.Arrays;
 class App1 {
     public static String[] getWeekends(String format) {
 
-        String[] daysWeekendsLong = {"saturday", "sunday" };
+        String[] daysWeekendsLong = {"saturday", "sunday"};
 
-        String[] daysWeekendsShort = {"sat", "sun" };
+        String[] daysWeekendsShort = {"sat", "sun"};
 
         if (format.equals("short")) {
 
@@ -15,7 +15,7 @@ class App1 {
 
         }
 
-            return daysWeekendsLong;
+        return daysWeekendsLong;
 
     }
 
@@ -43,7 +43,7 @@ class App1 {
 
         }
 
-            return arraysIntegers;
+        return arraysIntegers;
 
     }
 
@@ -63,14 +63,16 @@ class App1 {
 
         }
 
-            return arraysIntegers;
+        return arraysIntegers;
 
     }
 
+
     public static void main(String[] args) {
-        int[] numbers = {1, 2, 3, 4 , 5 , 6};
+        int[] numbers = {1, 2, 3, 4, 5, 6};
         var result2 = App1.swap(numbers);
         System.out.println(Arrays.toString(result2));
+
 
     }
 }
