@@ -1,3 +1,5 @@
+package Hexlet_Arrays;
+
 import java.util.Arrays;
 
 class App1 {
@@ -11,11 +13,10 @@ class App1 {
 
             return daysWeekendsShort;
 
-        } else {
+        }
 
             return daysWeekendsLong;
 
-        }
     }
 
     public static int[] swap(int[] arraysIntegers) {
@@ -40,10 +41,10 @@ class App1 {
 
             return result;
 
-        } else {
+        }
 
             return arraysIntegers;
-        }
+
     }
 
     public static int[] reversNumbers(int[] arraysIntegers) {
@@ -60,10 +61,9 @@ class App1 {
 
             return result;
 
-        } else {
+        }
 
             return arraysIntegers;
-        }
 
     }
 
