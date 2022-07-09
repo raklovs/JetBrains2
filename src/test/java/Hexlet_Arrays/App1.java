@@ -1,6 +1,7 @@
 package Hexlet_Arrays;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 class App1 {
     public static String[] getWeekends(String format) {
@@ -215,10 +216,40 @@ class App1 {
         }
         return newMatrix;
     }
+    public static String buildDefinitionList(String[][] definitions) {
+        //Реализуйте публичный статический метод buildDefinitionList(),
+        // который генерирует HTML список определений (теги <dl>, <dt> и <dd>)
+        // и возвращает получившуюся строку. При отсутствии элементов в массиве метод возвращает пустую строку.
+
+        if (definitions.length == 0) {
+            return "";
+        }
+
+        var result = new StringBuilder("<dl>");
+        for (String[] def1 : definitions) {
+
+                    result.append("<dt>");//<dt>key</dt>
+                    result.append(def1[0]);
+                    result.append("</dt>");
+
+                    result.append("<dd>");//<dt>key</dt>
+                    result.append(def1[1]);
+                    result.append("</dd>");
+
+        }
+        result.append("</dl>");
+        return result.toString();
+    }
 
 
     public static void main(String[] args) {
 
+
+        String[][] definitions = {
+                {"definition1", "description1"},
+                {"definition2", "description2"},
+        };
+        System.out.println(App1.buildDefinitionList(definitions));
 
         int[][] matrix = {
                 {1, 2, 3},
