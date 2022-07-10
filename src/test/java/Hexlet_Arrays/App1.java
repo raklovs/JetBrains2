@@ -2,6 +2,10 @@ package Hexlet_Arrays;
 
 import java.util.Arrays;
 import java.util.Objects;
+import java.util.StringJoiner;
+
+import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.StringUtils;
 
 class App1 {
     public static String[] getWeekends(String format) {
@@ -241,33 +245,58 @@ class App1 {
         return result.toString();
     }
 
+    public static String makeCensored(String text, String[] stopWords) {
+//Реализуйте публичный статический метод makeCensored(), который заменяет каждое вхождение указанного слова
+// в предложении на последовательность $#%! и возвращает полученную строку.
+        String correction = "$#%!";
+        var wordsArrays = text.split(" ");
+        var result = new StringJoiner(" ");
+
+        for (var word : wordsArrays) {
+
+            for (var stopWord : stopWords) {
+
+                if (word.equals(stopWord)) {
+                    word = correction;
+                }
+
+            }
+            result.add(word);
+        }
+
+        return result.toString();
+    }
+
+
+
 
     public static void main(String[] args) {
 
-
-        String[][] definitions = {
-                {"definition1", "description1"},
-                {"definition2", "description2"},
-        };
-        System.out.println(App1.buildDefinitionList(definitions));
-
-        int[][] matrix = {
-                {1, 2, 3},
-                {4, 5, 6},
-                {7, 8, 9}
-        };
-        var result = App1.flattenMatrix(matrix);
-        System.out.println(Arrays.toString(result)); // => [1, 2, 3, 4, 5, 6]
-
-        String[] money = {"eur 10", "usd 1", "usd 10", "rub 50", "usd 5"};
-        System.out.println(App1.getTotalAmount(money, "usd")); // 16
-
-        int[] numbers4 = {1, 5, 8, 100};
-
-        System.out.println(Arrays.toString(App1.remove(numbers4, 2)));
-
-        int[] numbers = {-1, 2, 3, 6, 1, 3};
-        System.out.println(Arrays.toString(App1.getSameParity(numbers))); // [1, 3]
+        var text1 = "yyab";
+        App1.countUniqChars(text1); // 3
+//        String[][] definitions = {
+//                {"definition1", "description1"},
+//                {"definition2", "description2"},
+//        };
+//        System.out.println(App1.buildDefinitionList(definitions));
+//
+//        int[][] matrix = {
+//                {1, 2, 3},
+//                {4, 5, 6},
+//                {7, 8, 9}
+//        };
+//        var result = App1.flattenMatrix(matrix);
+//        System.out.println(Arrays.toString(result)); // => [1, 2, 3, 4, 5, 6]
+//
+//        String[] money = {"eur 10", "usd 1", "usd 10", "rub 50", "usd 5"};
+//        System.out.println(App1.getTotalAmount(money, "usd")); // 16
+//
+//        int[] numbers4 = {1, 5, 8, 100};
+//
+//        System.out.println(Arrays.toString(App1.remove(numbers4, 2)));
+//
+//        int[] numbers = {-1, 2, 3, 6, 1, 3};
+//        System.out.println(Arrays.toString(App1.getSameParity(numbers))); // [1, 3]
 //        int[] numbers = {1, 2, 3, 4, 5, 6};
 //        var result2 = App1.swap(numbers);
 //        System.out.println(Arrays.toString(result2));
