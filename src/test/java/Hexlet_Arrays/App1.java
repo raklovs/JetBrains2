@@ -287,12 +287,33 @@ class App1 {
 
     }
 
+    public static int[] bubbleSort(int[] numbers) {
+        int a, b, t;
+        var size = numbers.length;
+
+        for (a = 0; a < size; a++) {
+            for (b = size - 1; b > a; b--) {
+                if (numbers[b - 1] > numbers[b]) {
+                    t = numbers[b];
+                    numbers[b] = numbers[b - 1];
+                    numbers[b - 1] = t;
+                }
+            }
+        }
+        return numbers;
+
+    }
 
 
     public static void main(String[] args) {
 
-        var text = "You know nothing Jon Snow";
-        System.out.println(App1.countUniqChars(text)); // 3
+        int[] numbers = {3, 10, 4, 3};
+        App1.bubbleSort(numbers);
+        System.out.println(Arrays.toString(numbers)); // => [3, 3, 4, 10]
+
+
+//        var text = "You know nothing Jon Snow";
+//        System.out.println(App1.countUniqChars(text)); // 3
 //        String[][] definitions = {
 //                {"definition1", "description1"},
 //                {"definition2", "description2"},
