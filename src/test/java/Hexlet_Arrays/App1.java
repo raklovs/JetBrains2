@@ -5,7 +5,6 @@ import java.util.Objects;
 import java.util.StringJoiner;
 
 import org.apache.commons.lang3.ArrayUtils;
-import org.apache.commons.lang3.StringUtils;
 
 class App1 {
     public static String[] getWeekends(String format) {
@@ -267,13 +266,33 @@ class App1 {
         return result.toString();
     }
 
+    public static int countUniqChars(String text) {
+        if (text.equals("")) {
+            return 0;
+        }
+        var count = 0;
+        var charArrays = text.toCharArray();
+        char[] getCopy = new char[charArrays.length];
+        for (int i = 0; i < charArrays.length; i++) {
+
+            if (!ArrayUtils.contains(getCopy, charArrays[i])) {
+
+                getCopy[i] = charArrays[i];
+                count += 1;
+            }
+
+        }
+
+        return count;
+
+    }
 
 
 
     public static void main(String[] args) {
 
-        var text1 = "yyab";
-        App1.countUniqChars(text1); // 3
+        var text = "You know nothing Jon Snow";
+        System.out.println(App1.countUniqChars(text)); // 3
 //        String[][] definitions = {
 //                {"definition1", "description1"},
 //                {"definition2", "description2"},
