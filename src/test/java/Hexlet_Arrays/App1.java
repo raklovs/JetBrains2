@@ -1,6 +1,7 @@
 package Hexlet_Arrays;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 import java.util.StringJoiner;
 
@@ -361,11 +362,27 @@ class App1 {
         var wordsArrays = str.trim().split(" ");
         return wordsArrays[wordsArrays.length - 1].length();
     }
+    public static int getHammingWeight(int value) {
+
+        int weight = 0;
+        List<String> digits = Arrays.asList(Integer.toBinaryString(value).split(""));
+        for (String digit : digits) {
+            if (digit.equals("1")) {
+                weight += 1;
+            }
+        }
+        return weight;
+    }
+
+    
 
 
     public static void main(String[] args) {
 
-        System.out.println(App1.getLastWordLength("man in BlacK"));
+
+        System.out.println(App1.getHammingWeight(101) );// 4
+
+//        System.out.println(App1.getLastWordLength("man in BlacK"));
 //        int[] numbers = {5,6,7,8};
 //        System.out.println(App1.isContinuousSequence(numbers));// true
 //        int[] num1 = {10, 11, 24};
