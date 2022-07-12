@@ -335,14 +335,43 @@ class App1 {
         return found ? sort : num3;
     }
 
+    public static boolean isContinuousSequence(int[] numbers) {
+
+        if (numbers.length == 0 || numbers.length == 1) {
+            return false;
+        }
+
+        int[] check = new int[numbers.length];
+        check[0] = numbers[0];
+        var sumCheck = 0;
+        var sumNumbers = 0;
+        for (int i = 1, j = 0; i < numbers.length; i++, j++) {
+            check[i] = check[j] + 1;
+        }
+        for (var i = 0; i < numbers.length; i++) {
+            sumCheck += check[i];
+        }
+        for (var i = 0; i < numbers.length; i++) {
+            sumNumbers += numbers[i];
+        }
+        return sumCheck == sumNumbers;
+    }
+
+    public static int getLastWordLength(String str) {
+        var wordsArrays = str.trim().split(" ");
+        return wordsArrays[wordsArrays.length - 1].length();
+    }
+
 
     public static void main(String[] args) {
 
-        int[] num1 = {10, 11, 24};
-        int[] num2 = {10, 13, 14, 18, 24, 30};
-        var result1 = App1.getIntersectionOfSortedArrays(num1, num2);
-        System.out.println(Arrays.toString(result1)); // => [10, 24]
-
+        System.out.println(App1.getLastWordLength("man in BlacK"));
+//        int[] numbers = {5,6,7,8};
+//        System.out.println(App1.isContinuousSequence(numbers));// true
+//        int[] num1 = {10, 11, 24};
+//        int[] num2 = {10, 13, 14, 18, 24, 30};
+//        var result1 = App1.getIntersectionOfSortedArrays(num1, num2);
+//        System.out.println(Arrays.toString(result1)); // => [10, 24]
 //        int[] numbers = {3, 10, 4, 3};
 //        App1.bubbleSort(numbers);
 //        System.out.println(Arrays.toString(numbers)); // => [3, 3, 4, 10]
