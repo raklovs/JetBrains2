@@ -304,14 +304,48 @@ class App1 {
 
     }
 
+    public static int[] getIntersectionOfSortedArrays(int[] num1, int[] num2) {
+        int i, j;
+        var index = 0;
+        var sort = new int[num1.length + num2.length];
+        boolean found = false;
+
+
+        for (i = 0; i < num1.length; ) {
+            for (j = 0; i < num1.length && j < num2.length; ) {
+
+                if (num1[i] > num2[j]) {
+                    j++;
+                } else if (num1[i] == num2[j]) {
+                    sort[index] = num1[i];
+                    found = true;
+                    index++;
+                    i++;
+                    j++;
+                } else {
+                    i++;
+                }
+
+            }
+            sort = Arrays.copyOfRange(sort, 0, index);
+            i = num1.length;
+
+        }
+        int[] num3 = {};
+        return found ? sort : num3;
+    }
+
 
     public static void main(String[] args) {
 
-        int[] numbers = {3, 10, 4, 3};
-        App1.bubbleSort(numbers);
-        System.out.println(Arrays.toString(numbers)); // => [3, 3, 4, 10]
+        int[] num1 = {10, 11, 24};
+        int[] num2 = {10, 13, 14, 18, 24, 30};
+        var result1 = App1.getIntersectionOfSortedArrays(num1, num2);
+        System.out.println(Arrays.toString(result1)); // => [10, 24]
 
-
+//        int[] numbers = {3, 10, 4, 3};
+//        App1.bubbleSort(numbers);
+//        System.out.println(Arrays.toString(numbers)); // => [3, 3, 4, 10]
 //        var text = "You know nothing Jon Snow";
 //        System.out.println(App1.countUniqChars(text)); // 3
 //        String[][] definitions = {
