@@ -1,20 +1,20 @@
 package IntroductionInOOP;
 
 class Point {
-    double x;
-    double y;
+    private double x;
+    private double y;
 
-    Point(double x, double y) {
-        this.x = x;
-        this.y = y;
+    Point(double coordinateX, double coordinateY) {
+        this.x = coordinateX;
+        this.y = coordinateY;
     }
 
     public double getX() {
-        return x;
+        return this.x;
     }
 
     public double getY() {
-        return y;
+        return this.y;
     }
 
 }
